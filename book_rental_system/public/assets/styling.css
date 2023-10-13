@@ -1,0 +1,223 @@
+body {
+    font-family: 'Mooli', sans-serif;
+    font-family: 'Titillium Web', sans-serif;
+}
+
+.nav_bar_0 {
+
+    background-color: rgb(238, 236, 236);
+    opacity: 0.9;
+    padding-top: 1.5rem;
+    padding-bottom: 1.1rem;
+
+    filter: drop-shadow(0px 5px 10px #6b6e6c);
+
+}
+
+.nav_bar_2 ul {
+    width: 100%;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.nav_bar_2 ul li {
+
+    margin: 0 2em;
+    list-style-type: circle;
+}
+
+.nav_bar_2 ul li a {
+
+    font-size: 1.2rem;
+    color: #191717;
+
+}
+
+
+.nav-link {
+    position: relative;
+    text-decoration: none;
+    color: #000;
+}
+
+.nav-link::after {
+    content: "";
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #000;
+    transform: scaleX(0);
+    transition: transform 0.3s ease-in-out;
+}
+
+.nav-link:hover::after {
+    transform: scaleX(1);
+}
+
+.nav_btns a {
+    margin: 0 0.8rem;
+    font-size: 1.1rem;
+}
+
+.nav_btns a:nth-child(1) {
+    background-color: rgb(135, 133, 133);
+    padding: 0.5rem 1.7rem;
+    color: white;
+}
+
+.nav_btns a:nth-child(2) {
+    padding: 0.5rem 1.2rem;
+    color: rgb(75, 74, 74);
+}
+
+
+/* home screen bg image */
+.bgImg img {
+    width: 100%;
+    height: 80vh;
+}
+
+.bgTxt {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.bgTxt2 {
+    display: flex;
+    flex-direction: column;
+}
+
+.bgTxt2 p {
+    font-size: 1.4rem;
+}
+
+
+/* registration screen */
+.registration_box {
+    margin-top: 3rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.registration_box li {
+    margin: 15px;
+}
+
+/* update profile  */
+
+.dpImg {
+    width: 50%;
+    height: auto;
+    margin: 1.8rem 2rem;
+}
+
+/* toggle button */
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 3.5rem;
+    height: 30px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 23px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked+.slider {
+    background-color: #494d50;
+}
+
+input:focus+.slider {
+    box-shadow: 0 0 1px #7c8082;
+}
+
+input:checked+.slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+/* home page books card */
+
+.book_cards a {
+    text-decoration: none;
+    color: black;
+}
+
+.book_cards:hover{
+    text-decoration: none; 
+    transform: translateY(-15px); 
+    transition: all 0.3s ease-in-out; 
+    box-shadow: 0px 2px 4px rgba(31, 31, 31, 0.1); 
+}
+
+
+@media screen and (max-width: 425px) {
+
+    .nav_bar_2 ul {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+    }
+
+    /* update profile info  */
+    .row0 {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .dpImg {
+        width: auto;
+        height: 50vh;
+        margin: 1.8rem 5.0rem;
+
+    }
+}

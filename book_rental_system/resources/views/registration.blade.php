@@ -274,19 +274,17 @@
 
     {{-- confirm password  === password --}}
     <script>
-        $(document).ready(function() {
-            $('#togglePassword').click(function() {
-                var passwordInput = $('#password');
-                var toggleText = $('#toggleText');
+        var password = document.getElementById("password");
+        var confirmPassword = document.getElementById("password_confirmation");
 
-                if (passwordInput.attr('type') === 'password') {
-                    passwordInput.attr('type', 'text');
-                    toggleText.text('Hide Password');
+        confirmPassword.addEventListener("input", function() {
+            if (confirmPassword.value.length > 0) {
+                if (password.value !== confirmPassword.value) {
+                    confirmPassword.setCustomValidity("Passwords do not match");
                 } else {
-                    passwordInput.attr('type', 'password');
-                    toggleText.text('Show Password');
+                    confirmPassword.setCustomValidity("");
                 }
-            });
+            }
         });
     </script>
 

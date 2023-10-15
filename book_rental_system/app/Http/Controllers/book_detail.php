@@ -6,7 +6,6 @@ use App\Console\Commands\send_mail;
 use App\Models\book_rented;
 use App\Models\books_table;
 use App\Models\users;
-use Illuminate\Support\Facades\Artisan;
 
 
 use Illuminate\Support\Facades\Date;
@@ -36,6 +35,7 @@ class book_detail extends Controller
 
         $recordCount = book_rented::where('user_email', $email)->count();
 
+        //only 4 books can be rented per person
         $limit = 4;
 
         if ($recordCount >= $limit) {
@@ -93,30 +93,6 @@ class book_detail extends Controller
     {
         $id = $req->rented_book_id;;
         $books = book_rented::find($id);
-
-        
-        if ($books != null) {
-            $rentedDate = \Carbon\Carbon::parse($books->rented_date)->format('Y-m-d');
-
-            date_default_timezone_set('Asia/Karachi');
-
-            // Get the current date
-            $currentDate = \Carbon\Carbon::now()->format('Y-m-d');
-            // Add 2 days to the rented date
-            $twoDaysAfterRented = \Carbon\Carbon::parse($rentedDate)->modify('+2 days');
-
-            $is_match = \Carbon\Carbon::parse($currentDate)->greaterThan($twoDaysAfterRented);
-
-            // Check if the current date is after the two days after the rented date
-            if ($is_match) {
-                $user_email = session('email');
-
-                // call and send send email using cron job (app/console/commands/send_mail) 
-                Artisan::call('app:send_mail', ['--email' => $user_email]);
-
-                // dd("Two days have passed after the rented date.");
-            }
-        }
 
         return view('rented_book_detail', ['books' => $books]);
     }

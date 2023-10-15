@@ -13,6 +13,13 @@ This ReadMe file has instructions of installation and setting up laravel project
 
 4- After sucessfully executing the above commands, laravel has sucessfuly installed.
 
+5- Now install XAMPP for running Laravel project on local server and establishing it's connection to Database.
+   XAMPP official website ->	https://www.apachefriends.org/download.html
+
+6- After installation of XAMPP, Start the Apache Server and MySQL.
+
+7- Now, use laravel project and establish connection with Database. 
+
 
 ============|| Setup Process of Laravel Project ||============
 
@@ -30,6 +37,8 @@ This ReadMe file has instructions of installation and setting up laravel project
 
 6- Type the following command and press enter,
    php artisan serve
+   (if you downloaded an existing project and it has a migration   
+    file then run the migration file first by typing php artisan migrate)
 
 7- Your project will be started sucessfully.
 
